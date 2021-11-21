@@ -7,10 +7,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-import ws.spring.convert.dto.City;
-import ws.spring.convert.dto.Town;
-import ws.spring.convert.dto.County;
-import ws.spring.convert.dto.Province;
+import ws.spring.convert.dto.*;
 
 import javax.annotation.PostConstruct;
 
@@ -34,6 +31,8 @@ public class CustomBean {
     private City city;
     private County county;
 
+    private Student student;
+
     @PostConstruct
     public void init() {
 
@@ -41,5 +40,6 @@ public class CustomBean {
         log.info("province: {}",province);
         log.info("city: {}",city);
         log.info("county: {}",county);
+        log.info("student: {}",student);
     }
 }
