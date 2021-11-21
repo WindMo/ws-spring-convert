@@ -15,6 +15,7 @@ import ws.spring.convert.dto.Province;
 import javax.annotation.PostConstruct;
 
 /**
+ * 利用注册的{@link org.springframework.core.convert.converter.Converter} 进行数据转换，直接进行注入
  * @author WindShadow
  * @date 2021-11-21.
  */
