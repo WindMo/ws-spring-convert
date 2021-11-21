@@ -12,18 +12,18 @@ import lombok.*;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class County extends Province {
+public class County extends City {
 
     /** 区/县名 */
     private String countyName;
 
-    public County(String provinceName, String countyName) {
-        super(provinceName);
+    public County(String cityName, String countyName) {
+        super(cityName);
         this.countyName = countyName;
     }
 
-    public County(String region, String provinceName, String countyName) {
-        super(region, provinceName);
+    public County(String provinceName, String cityName, String countyName) {
+        super(provinceName, cityName);
         this.countyName = countyName;
     }
 }

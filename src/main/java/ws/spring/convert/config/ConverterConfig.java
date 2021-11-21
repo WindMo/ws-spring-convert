@@ -1,13 +1,12 @@
 package ws.spring.convert.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
-import ws.spring.convert.converter.AdministrativeRegionConverterFactory;
-import ws.spring.convert.converter.CityConverter;
+import ws.spring.convert.converter.ProvinceConverterFactory;
+import ws.spring.convert.converter.TownConverter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,8 +24,8 @@ public class ConverterConfig {
     public ConversionServiceFactoryBean conversionService() {
 
         Set<Object> converters = new HashSet<>();
-        converters.add(new CityConverter());
-        converters.add(new AdministrativeRegionConverterFactory());
+        converters.add(new TownConverter());
+        converters.add(new ProvinceConverterFactory());
 
         ConversionServiceFactoryBean conversionServiceFactoryBean = new ConversionServiceFactoryBean();
         conversionServiceFactoryBean.setConverters(converters);

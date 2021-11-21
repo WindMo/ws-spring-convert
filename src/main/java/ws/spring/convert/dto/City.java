@@ -1,21 +1,27 @@
 package ws.spring.convert.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
  * @author WindShadow
- * @version 2021-3-7.
+ * @date 2021-11-21.
  */
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@ToString
-public class City {
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class City extends Province{
 
-    private Integer code;
-    private String name;
+    private String cityName;
+
+    public City(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public City(String provinceName, String cityName) {
+        super(provinceName);
+        this.cityName = cityName;
+    }
 }

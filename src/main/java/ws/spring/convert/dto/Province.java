@@ -8,20 +8,13 @@ import lombok.*;
  * @date 2021-11-21.
  */
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Province extends AdministrativeRegion {
+public class Province {
 
     /** 省份名称 */
     private String provinceName;
-
-    public Province(String provinceName) {
-        this.provinceName = provinceName;
-    }
-
-    public Province(String region, String provinceName) {
-        super(region);
-        this.provinceName = provinceName;
-    }
 }
