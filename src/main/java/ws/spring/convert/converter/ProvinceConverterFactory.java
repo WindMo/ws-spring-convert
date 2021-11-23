@@ -18,7 +18,13 @@ import java.util.regex.Pattern;
 /**
  * 转换器工厂；1 -> N 的转换
  * 以{@link Province}与其子类为例
- * 一般实现{@link ConverterFactory}接口的同时要实现{@link ConditionalConverter}接口
+ * <p>
+ *     一般实现{@link ConverterFactory}接口的同时要实现{@link ConditionalConverter}接口
+ * </p>
+ * <p>
+ *     需要注意的是，{@link ConverterFactory}提供的{@link Converter}不会加入IOC，所以SpringMVC在进行参数绑定时无法使用这些{@link Converter}，
+ *     故{@link ConverterFactory}一般用于Spring在装载bean的属性时需要进行转换的操作，对于开发人员来说，一般是String类型到自定义类型的转换
+ * </p>
  * @author WindShadow
  * @date 2021-11-21.
  * @see ws.spring.convert.bean.CustomBean#setProvince(Province)
@@ -28,7 +34,7 @@ import java.util.regex.Pattern;
  */
 
 @Slf4j
-@Component // 加入IOC
+@Component // 加入IOC方便注册，不加人则手动注册，看需要
 public class ProvinceConverterFactory implements ConverterFactory<String, Province>, ConditionalConverter {
 
     private Map<Class<? extends Province>,Converter<String,? extends Province>> converterMap;
