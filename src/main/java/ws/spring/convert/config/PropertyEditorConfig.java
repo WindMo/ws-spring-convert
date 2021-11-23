@@ -28,8 +28,8 @@ public class PropertyEditorConfig {
      *     注意SpringMVC进行参数绑定时是无法利用此能力的，这是{@link org.springframework.beans.factory.BeanFactory}的能力，SpringMVC上使用需要额外注册
      * </p>
      * <p>
-     *     不难发现，{@link CustomEditorConfigurer}注册属性编辑器时，注册的是Class，而在 SpringMVC在参数绑定时，注册的是编辑器的实例，所以{@link PropertyEditor}的实现类肯定是不能加入IOC的成为bean的。
-     *     在实现{@link PropertyEditor}接口，不难发现此类肯定是线程不安全的，一个目标对象，就要使用一个编辑器实例，这一点和上述{@link PropertyEditor}的实现类肯定不能加入IOC成为bean呼应上了
+     *     不难发现，{@link CustomEditorConfigurer}注册属性编辑器时，注册的是Class，而在 SpringMVC在参数绑定时，注册的是编辑器的实例，所以{@link PropertyEditor}的实现类肯定是不能加入IOC的成为bean而复用的。
+     *     在实现{@link PropertyEditor}接口，不难发现此类肯定是线程不安全的，一个目标对象，就要使用一个编辑器实例，这一点和上述{@link PropertyEditor}的实现类肯定不能加入IOC复用呼应上了
      * </p>
      *
      * {@link CustomEditorConfigurer}实现了{@link org.springframework.beans.factory.config.BeanFactoryPostProcessor}接口，设置为静态方法以提高优先级
