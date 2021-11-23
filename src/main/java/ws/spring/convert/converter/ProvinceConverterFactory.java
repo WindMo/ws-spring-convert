@@ -1,6 +1,8 @@
 package ws.spring.convert.converter;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.TypeDescriptor;
+import org.springframework.core.convert.converter.ConditionalConverter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.stereotype.Component;
@@ -16,7 +18,7 @@ import java.util.regex.Pattern;
 /**
  * 转换器工厂；1 -> N 的转换
  * 以{@link Province}与其子类为例
- * 加入IOC
+ * 一般实现{@link ConverterFactory}接口的同时要实现{@link ConditionalConverter}接口
  * @author WindShadow
  * @date 2021-11-21.
  * @see ws.spring.convert.bean.CustomBean#setProvince(Province)
@@ -26,8 +28,8 @@ import java.util.regex.Pattern;
  */
 
 @Slf4j
-@Component
-public class ProvinceConverterFactory implements ConverterFactory<String, Province> {
+@Component // 加入IOC
+public class ProvinceConverterFactory implements ConverterFactory<String, Province>, ConditionalConverter {
 
     private Map<Class<? extends Province>,Converter<String,? extends Province>> converterMap;
 
@@ -80,5 +82,13 @@ public class ProvinceConverterFactory implements ConverterFactory<String, Provin
             throw new IllegalArgumentException("The source is <"+ source + ">, Format like: \"江苏省-南京市-江宁区\"");
         });
         return converterMap;
+    }
+
+    @Override
+    public boolean matches(TypeDescriptor sourceType, TypeDescriptor targetType) {
+
+        Class<?> targetTypeClass = targetType.getType();
+        return String.class.equals(sourceType.getType()) &&
+                (Province.class.equals(targetTypeClass) || City.class.equals(targetTypeClass) || County.class.equals(targetTypeClass));
     }
 }
