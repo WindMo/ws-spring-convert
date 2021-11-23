@@ -27,7 +27,7 @@ public class CustomControllerAdvice {
     private void registerCustomEditor(WebDataBinder binder) {
 
 /*
-        此种绑定方式看似很好，先找到对应的属性编辑器，再进行注册，但是此时 target 为 null，因为不知道 target的类型
+        此种绑定方式看似很好，先找到对应的属性编辑器，再进行注册，但是此时 target 为 null，不知道 target的类型，也就无法“对症下药”
 
         Object target = binder.getTarget();
         if (target == null) {
@@ -41,7 +41,7 @@ public class CustomControllerAdvice {
             registerCustomEditor(binder,entityClass,entityPropertyEditorClass);
         }
 */
-        // 注册全部的属性编辑器到当前的绑定器
+        // 注册全部的属性编辑器到当前的绑定器（比较退而求其次的做法）
         PropertyEditorConfig.getPropertyEditors().forEach((entityClass,entityPropertyEditorClass) -> registerCustomEditor(binder,entityClass,entityPropertyEditorClass));
     }
 
