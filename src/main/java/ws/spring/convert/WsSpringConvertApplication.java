@@ -9,5 +9,4 @@ public class WsSpringConvertApplication {
     public static void main(String[] args) {
         SpringApplication.run(WsSpringConvertApplication.class, args);
     }
-
 }

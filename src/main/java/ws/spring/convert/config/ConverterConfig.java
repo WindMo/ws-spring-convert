@@ -1,13 +1,11 @@
 package ws.spring.convert.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
-import ws.spring.convert.converter.ProvinceConverterFactory;
-import ws.spring.convert.converter.TownConverter;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,13 +18,20 @@ import java.util.Set;
 @Configuration
 public class ConverterConfig {
 
+    /**
+     * 注册所有的转换器和转换器工厂
+     * @param converterSet
+     * @param converterFactorySet
+     * @return
+     */
     @Bean
-    public ConversionServiceFactoryBean conversionService() {
+    public ConversionServiceFactoryBean conversionService(
+            @Autowired Set<Converter<?,?>> converterSet,
+            @Autowired Set<ConverterFactory<?,?>> converterFactorySet) {
 
         Set<Object> converters = new HashSet<>();
-        converters.add(new TownConverter());
-        converters.add(new ProvinceConverterFactory());
-
+        converters.addAll(converterSet);
+        converters.addAll(converterFactorySet);
         ConversionServiceFactoryBean conversionServiceFactoryBean = new ConversionServiceFactoryBean();
         conversionServiceFactoryBean.setConverters(converters);
         return conversionServiceFactoryBean;

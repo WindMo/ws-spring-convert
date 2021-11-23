@@ -9,13 +9,13 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @author WindShadow
- * @version 2020/9/20.
+ * @date 2020/9/20.
  */
 
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@ToString
 public class Company {
 
     private Long id;

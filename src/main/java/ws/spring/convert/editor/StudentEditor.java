@@ -1,5 +1,6 @@
 package ws.spring.convert.editor;
 
+import lombok.extern.slf4j.Slf4j;
 import ws.spring.convert.dto.Student;
 
 import java.beans.PropertyEditorSupport;
@@ -12,6 +13,8 @@ import java.util.regex.Pattern;
  * @date 2021-3-1
  *
  */
+
+@Slf4j
 public class StudentEditor extends PropertyEditorSupport {
 
     private static final Pattern STUDENT_PATTEN = Pattern.compile("\\([0-9]{1,},[a-zA-Z\\u4e00-\\u9fa5]{1,}\\)");
@@ -23,6 +26,7 @@ public class StudentEditor extends PropertyEditorSupport {
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
 
+        log.info("StudentEditor >>> {}",text);
         if (STUDENT_PATTEN.matcher(text).matches()) {
 
             String[] params = text.substring(1,text.length() - 1).split(",");
