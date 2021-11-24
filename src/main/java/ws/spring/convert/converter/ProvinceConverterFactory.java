@@ -23,7 +23,8 @@ import java.util.regex.Pattern;
  * </p>
  * <p>
  *     需要注意的是，{@link ConverterFactory}提供的{@link Converter}不会加入IOC，所以SpringMVC在进行参数绑定时无法使用这些{@link Converter}，
- *     故{@link ConverterFactory}一般用于Spring在装载bean的属性时需要进行转换的操作，对于开发人员来说，一般是String类型到自定义类型的转换
+ *     故{@link ConverterFactory}一般用于Spring在装载bean的属性时需要进行转换的操作，对于开发人员来说，一般是String类型到自定义类型的转换；
+ *
  * </p>
  * @author WindShadow
  * @date 2021-11-21.

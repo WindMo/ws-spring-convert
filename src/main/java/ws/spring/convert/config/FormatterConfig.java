@@ -18,7 +18,7 @@ import java.util.Set;
 public class FormatterConfig {
 
     /**
-     *
+     * 注册格式转换器
      * @return
      */
     @Bean

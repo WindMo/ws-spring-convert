@@ -30,7 +30,6 @@ public class CustomBean {
     private Province province;
     private City city;
     private County county;
-    private County countyX;
 
     private Student student;
 
