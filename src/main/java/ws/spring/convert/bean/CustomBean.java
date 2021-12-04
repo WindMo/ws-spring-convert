@@ -7,7 +7,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-import ws.spring.convert.dto.*;
+import ws.spring.convert.pojo.*;
 
 import javax.annotation.PostConstruct;
 
@@ -30,7 +30,6 @@ public class CustomBean {
     private Province province;
     private City city;
     private County county;
-
     private Student student;
 
     @PostConstruct

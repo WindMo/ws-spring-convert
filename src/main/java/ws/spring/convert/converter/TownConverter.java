@@ -3,7 +3,7 @@ package ws.spring.convert.converter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import ws.spring.convert.dto.Town;
+import ws.spring.convert.pojo.Town;
 
 import java.util.Set;
 import java.util.regex.Pattern;

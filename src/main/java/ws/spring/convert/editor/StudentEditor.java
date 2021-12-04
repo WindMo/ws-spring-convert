@@ -1,7 +1,7 @@
 package ws.spring.convert.editor;
 
 import lombok.extern.slf4j.Slf4j;
-import ws.spring.convert.dto.Student;
+import ws.spring.convert.pojo.Student;
 
 import java.beans.PropertyEditorSupport;
 import java.util.regex.Pattern;

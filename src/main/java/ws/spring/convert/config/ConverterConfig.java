@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * 转换器{@link Converter}和转换器工厂{@link ConverterFactory}配置
  * @author WindShadow
- * @date 2021-11-21.
+ * @version 2021-11-21.
  */
 
 @Configuration
@@ -20,9 +20,9 @@ public class ConverterConfig {
 
     /**
      * 注册所有的转换器和转换器工厂
-     * @param converterSet
-     * @param converterFactorySet
-     * @return
+     * @param converterSet 所有的转换器
+     * @param converterFactorySet 所有的转换器工厂
+     * @return {@link ConversionServiceFactoryBean}
      */
     @Bean
     public ConversionServiceFactoryBean conversionService(

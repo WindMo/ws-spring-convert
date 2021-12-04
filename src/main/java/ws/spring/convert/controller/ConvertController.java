@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ws.spring.convert.dto.City;
-import ws.spring.convert.dto.County;
-import ws.spring.convert.dto.Province;
-import ws.spring.convert.dto.Town;
+import ws.spring.convert.pojo.City;
+import ws.spring.convert.pojo.County;
+import ws.spring.convert.pojo.Province;
+import ws.spring.convert.pojo.Town;
 
 /**
  * 数据转换器生效于Controller

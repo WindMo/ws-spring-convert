@@ -1,25 +1,25 @@
-package ws.spring.convert.dto;
+package ws.spring.convert.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author WindShadow
  * @date 2020/9/20.
  */
 
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class User {
+@ToString
+public class Company {
 
     private Long id;
     private String name;
-    @Email
-    private String email;
+    @NotNull
+    private String address;
 }

@@ -1,4 +1,4 @@
-package ws.spring.convert.dto;
+package ws.spring.convert.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,15 +7,15 @@ import lombok.ToString;
 
 /**
  * @author WindShadow
- * @version 2021-3-7.
+ * @version 2021-11-25.
  */
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
-public class Town {
+public class Car {
 
-    private Integer code;
     private String name;
+    private Integer engineCode;
 }

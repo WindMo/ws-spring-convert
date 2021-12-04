@@ -21,6 +21,7 @@ public class CustomControllerAdvice {
     @InitBinder
     public void initBinder(WebDataBinder binder) {
 
+        // 注册属性编辑器
         registerCustomEditor(binder);
     }
 

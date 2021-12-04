@@ -6,9 +6,9 @@ import org.springframework.core.convert.converter.ConditionalConverter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.stereotype.Component;
-import ws.spring.convert.dto.City;
-import ws.spring.convert.dto.County;
-import ws.spring.convert.dto.Province;
+import ws.spring.convert.pojo.City;
+import ws.spring.convert.pojo.County;
+import ws.spring.convert.pojo.Province;
 
 import java.util.HashMap;
 import java.util.Map;

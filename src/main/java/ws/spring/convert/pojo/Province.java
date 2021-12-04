@@ -1,4 +1,4 @@
-package ws.spring.convert.dto;
+package ws.spring.convert.pojo;
 
 import lombok.*;
 
