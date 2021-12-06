@@ -1,6 +1,8 @@
 package ws.spring.convert.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,12 +23,13 @@ public class ConvertController {
 
     /**
      * get请求string参数转{@link Town}
-     * @param town
-     * @return
+     * <p>但是跳过了数据校验{@link CustomControllerAdvice#initBinder(WebDataBinder)}
+     * @param town Get请求的String参数
+     * @return String
      * @see ws.spring.convert.converter.TownConverter 加入IOC之后控制层直接可以进行String到{@link Town}的转换
      */
     @GetMapping("/converter")
-    public String stringToTown(@RequestParam("town") Town town) {
+    public String stringToTown(@Validated @RequestParam("town") Town town) {
 
         log.info("town: {}",town);
         return String.valueOf(town);

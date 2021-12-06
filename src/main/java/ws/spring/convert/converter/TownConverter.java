@@ -36,7 +36,7 @@ public class TownConverter implements Converter<String, Town> {
      * 将 "1001-南京" 转换成{@link Town}对象
      * @param source not null
      * @throws IllegalArgumentException 无法转换允许抛出参数错误异常
-     * @return
+     * @return Town
      */
     @Override
     public Town convert(String source) throws IllegalArgumentException {
