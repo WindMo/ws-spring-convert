@@ -41,8 +41,9 @@ public class CustomFormatterRegistrar implements FormatterRegistrar {
     @Override
     public void registerFormatters(FormatterRegistry registry) {
 
-//        converterSet.forEach(registry::addConverter);
-//        converterFactorySet.forEach(registry::addConverterFactory);
+        converterSet.forEach(registry::addConverter);
+        converterFactorySet.forEach(registry::addConverterFactory);
+
         registry.addFormatter(userFormatter);
         registry.addConverter(new CatConverter());
         // 注解格式化器

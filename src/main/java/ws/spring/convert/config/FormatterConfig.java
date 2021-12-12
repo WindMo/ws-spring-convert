@@ -43,7 +43,8 @@ public class FormatterConfig {
      * @see org.springframework.format.FormatterRegistry
      * @see org.springframework.core.convert.support.GenericConversionService
      */
-    @Bean("formatterRegistrars")
+//    @Bean(value = {"formatterRegistrars","conversionService"}) // 此种方式可以统一管理Converter和Formatter
+    @Bean(value = {"formatterRegistrars"})
     public FormattingConversionServiceFactoryBean formattingConversionService(@Autowired CustomFormatterRegistrar customFormatterRegistrar) {
 
         FormattingConversionServiceFactoryBean formattingConversionServiceFactoryBean = new FormattingConversionServiceFactoryBean();
