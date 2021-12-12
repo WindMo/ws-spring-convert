@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
  */
 
 @Slf4j
-@Component // 加入IOC方便注册，不加人则手动注册，看需要
+@Component // 加入IOC方便注册，不加则手动注册，看需要
 public class ProvinceConverterFactory implements ConverterFactory<String, Province>, ConditionalConverter {
 
     private Map<Class<? extends Province>,Converter<String,? extends Province>> converterMap;

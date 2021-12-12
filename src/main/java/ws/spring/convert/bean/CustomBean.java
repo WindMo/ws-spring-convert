@@ -36,6 +36,7 @@ public class CustomBean {
     private City city;
     private County county;
     private Student student;
+    private Cat cat;
 
     @PostConstruct
     public void init() {
@@ -45,5 +46,6 @@ public class CustomBean {
         log.info("city: {}",city);
         log.info("county: {}",county);
         log.info("student: {}",student);
+        log.info("cat: {}",cat);
     }
 }

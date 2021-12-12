@@ -21,7 +21,7 @@ public class CustomControllerAdvice {
 
 
     /**
-     * 此时 {@link WebDataBinder#getTarget()} 为 null，注册校验器也不生效了
+     * 此时 {@link WebDataBinder#getTarget()} 为 null，即使为其注册校验器也不生效了
      * @param binder
      */
     @InitBinder

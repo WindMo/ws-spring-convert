@@ -5,19 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.validation.constraints.Max;
-
 /**
  * @author WindShadow
- * @date 2021-3-1
+ * @version 2021-12-10.
  */
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
-public class Student {
+public class Cat {
 
-    @Max(100)
-    private Integer id;
     private String name;
+    private Integer age;
 }

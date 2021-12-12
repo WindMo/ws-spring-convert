@@ -4,20 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import javax.validation.constraints.Max;
+import ws.spring.convert.formatter.annoation.NumberSeparate;
 
 /**
  * @author WindShadow
- * @date 2021-3-1
+ * @version 2021-12-12.
  */
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @ToString
-public class Student {
+public class NumberWrapper {
 
-    @Max(100)
-    private Integer id;
-    private String name;
+    @NumberSeparate
+    private Integer code;
+    @NumberSeparate('=')
+    private Long number;
 }

@@ -10,11 +10,13 @@ import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
+import ws.spring.convert.converter.CustomFormatterRegistrar;
 
+import java.util.Collections;
 import java.util.Locale;
-import java.util.Set;
 
 /**
+ * 如果想在项目业务代码中使用格式化器，可以配置{@link FormattingConversionServiceFactoryBean}到IOC中，即可注入{@link FormattingConversionService}bean
  * @author WindShadow
  * @date 2021-11-22.
  */
@@ -34,18 +36,18 @@ public class FormatterConfig {
      * PrinterConverter 和 ParserConverter 维护{@link Formatter}格式化器，然后作为转换器注册到父类{@link ConversionService}中，
      * 完美复用 Converter 的功能进行适配增强
      *
-     * @param formatters 所有的格式化器
+     * @param customFormatterRegistrar 格式化器记录器
      * @return 格式化器注册服务的工厂bean {@link FormattingConversionServiceFactoryBean}
      * @see FormattingConversionServiceFactoryBean#getObject()
      * @see org.springframework.format.support.FormattingConversionService
      * @see org.springframework.format.FormatterRegistry
      * @see org.springframework.core.convert.support.GenericConversionService
      */
-    @Bean
-    public static FormattingConversionServiceFactoryBean formattingConversionService(@Autowired Set<Formatter<?>> formatters) {
+    @Bean("formatterRegistrars")
+    public FormattingConversionServiceFactoryBean formattingConversionService(@Autowired CustomFormatterRegistrar customFormatterRegistrar) {
 
         FormattingConversionServiceFactoryBean formattingConversionServiceFactoryBean = new FormattingConversionServiceFactoryBean();
-        formattingConversionServiceFactoryBean.setFormatters(formatters);
+        formattingConversionServiceFactoryBean.setFormatterRegistrars(Collections.singleton(customFormatterRegistrar));
         return formattingConversionServiceFactoryBean;
     }
 }
