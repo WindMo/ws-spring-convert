@@ -1,6 +1,7 @@
 package ws.spring.convert.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -109,8 +110,9 @@ public class FormatterController {
     /**
      * 在参数绑定时解析参数到注解上的属性
      * <p> /formatter/number-parse?code=1-2-3&number=4=5=6 即 /formatter/number-parse?code=1-2-3&number=4%3D5%3D6
-     * @param wrapper
-     * @return
+     * <p> 但是不经过参数校验，因为走的其实是{@link Converter}逻辑
+     * @param wrapper wrapper
+     * @return String
      */
     @GetMapping("/number-parse")
     @ResponseBody
