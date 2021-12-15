@@ -36,7 +36,7 @@ public class PropertyEditorController {
      * <p>无法映射，见{@link CustomControllerAdvice#initBinder(WebDataBinder)}
      * @param student Get请求的String参数
      * @return String
-     * @deprecated 无法映射
+     * @deprecated 无法从Get请求的String参数映射
      * @see ws.spring.convert.editor.StudentEditor
      */
     @GetMapping("/property-editor-non-assign")
