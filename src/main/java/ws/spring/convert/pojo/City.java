@@ -3,6 +3,7 @@ package ws.spring.convert.pojo;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
 /**
  * @author WindShadow
@@ -14,7 +15,11 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class City extends Province{
 
+    @Length(max = 2)
     private String cityName;
+
+    public City() {
+    }
 
     public City(String cityName) {
         this.cityName = cityName;

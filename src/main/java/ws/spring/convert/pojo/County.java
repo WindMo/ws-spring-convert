@@ -17,6 +17,9 @@ public class County extends City {
     /** 区/县名 */
     private String countyName;
 
+    public County() {
+    }
+
     public County(String cityName, String countyName) {
         super(cityName);
         this.countyName = countyName;

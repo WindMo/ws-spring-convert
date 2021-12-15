@@ -2,8 +2,8 @@ custom:
  bean:
    town: 100-比奇堡
    province: 江苏省
-   city: 江苏省-南京市
-   county: 江苏省-南京市-玄武区
+   city: 江苏省-南京
+   county: 江苏省-南京-玄武区
    student: (81,张三)
    user: 100-tom-123@qq.com
    cat: 18-tom
