@@ -5,8 +5,8 @@
     <groupId>ws.spring</groupId>
     <artifactId>ws-spring-convert</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ws-spring::convert</name>
-    <description>ws-spring::convert</description>
+    <name>ws-Spring::convert</name>
+    <description>Spring数据转换</description>
 
     <properties>
         <java.version>1.8</java.version>
