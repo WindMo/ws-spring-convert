@@ -54,8 +54,13 @@ public class PropertyEditorConfig {
 
         if (customEditors == null) {
 
-            customEditors = new HashMap<>(4/3 + 1);
-            customEditors.put(Student.class, StudentEditor.class);
+           synchronized (PropertyEditorConfig.class) {
+               if (customEditors == null) {
+
+                   customEditors = new HashMap<>(4/3 + 1);
+                   customEditors.put(Student.class, StudentEditor.class);
+               }
+           }
         }
         return customEditors;
     }

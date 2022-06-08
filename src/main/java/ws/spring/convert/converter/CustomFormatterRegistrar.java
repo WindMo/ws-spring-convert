@@ -28,10 +28,12 @@ public class CustomFormatterRegistrar implements FormatterRegistrar {
 
     @Autowired
     @Setter
+    @Deprecated
     private UserFormatter userFormatter;
 
     @Autowired
     @Setter
+    @Deprecated
     private Set<Converter<?,?>> converterSet;
 
     @Autowired
@@ -41,10 +43,10 @@ public class CustomFormatterRegistrar implements FormatterRegistrar {
     @Override
     public void registerFormatters(FormatterRegistry registry) {
 
-        converterSet.forEach(registry::addConverter);
-        converterFactorySet.forEach(registry::addConverterFactory);
+//        converterSet.forEach(registry::addConverter); // 不需要注册 Converter，mvc自动从IOC中获取并配置
+        converterFactorySet.forEach(registry::addConverterFactory); // Converter工厂需要自己注册
 
-        registry.addFormatter(userFormatter);
+//        registry.addFormatter(userFormatter);  // 不需要注册 Formatter，mvc自动从IOC中获取并配置
         registry.addConverter(new CatConverter());
         // 注解格式化器
         registry.addFormatterForFieldAnnotation(numberSeparateAnnotationFormatterFactory);

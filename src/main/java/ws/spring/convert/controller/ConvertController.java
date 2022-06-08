@@ -1,6 +1,8 @@
 package ws.spring.convert.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
@@ -18,7 +20,10 @@ import ws.spring.convert.pojo.*;
  * 数据转换器生效于Controller
  * <p>
  * 添加到IOC的{@link Converter}会被SpringMVC的{@link ConversionService}管理，添加到IOC的{@link ConverterFactory}不会被MVC的{@link ConversionService}管理，
- * 所以一般使用{@link WebMvcConfigurer#addFormatters(FormatterRegistry)}配置转换器和格式化器时。
+ * 所以一般使用{@link WebMvcConfigurer#addFormatters(FormatterRegistry)}配置转换器和格式化器。
+ * <p>
+ * MVC的conversionService在自动装配中配置的bean{@link WebMvcAutoConfiguration#mvcConversionService()}，
+ * 从IOC中获取bean的操作在{@link org.springframework.boot.convert.ApplicationConversionService#addBeans(FormatterRegistry, ListableBeanFactory)}中
  * <p>
  * 在SpringMVC控制层使用{@link RequestParam}注解指定参数名称时，表示将此参数（一般是String类型）转为对应的java类，
  * 即直接使用SpringMVC的{@link ConversionService}完成转换，从而不经过数据校验阶段。

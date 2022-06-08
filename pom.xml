@@ -7,6 +7,11 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>ws-Spring::convert</name>
     <description>Spring数据转换</description>
+    <url>https://github.com/WindMo/ws-spring-convert</url>
+    <organization>
+        <name>风的影子</name>
+        <url>https://www.javamo.cn</url>
+    </organization>
 
     <properties>
         <java.version>1.8</java.version>

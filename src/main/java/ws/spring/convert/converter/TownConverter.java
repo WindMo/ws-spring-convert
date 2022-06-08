@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * 转换器必须是线程安全的，也就是建议整个应用中相同的转换操作只使用这一个转换器就行
  * <p>
  *     Spring在装载bean的属性时，先从配置文件中获取String类型的配置，再从各个{@link org.springframework.core.convert.ConversionService}bean中获取可用的{@link Converter}，
- *     如果存在可用的转换器，则直接使用该转换器转换得到对应属性的实例，为bean设置属性
+ *     如果存在可用的转换器，则直接使用该转换器转换得到对应属性的实例，为bean设置属性<br>
  * </p>
  * <p>
  *     SpringMVC在进行参数映射时，会先从IOC中查询对应的【String类型转换为参数类型】的转换器{@link Converter}bean，如果有则直接使用该转换器进行参数绑定

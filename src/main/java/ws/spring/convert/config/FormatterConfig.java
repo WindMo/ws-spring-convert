@@ -1,8 +1,6 @@
 package ws.spring.convert.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.GenericConverter;
 import org.springframework.core.convert.support.GenericConversionService;
@@ -21,7 +19,7 @@ import java.util.Locale;
  * @date 2021-11-22.
  */
 
-@Configuration
+//@Configuration
 public class FormatterConfig {
 
     /**
@@ -44,7 +42,7 @@ public class FormatterConfig {
      * @see org.springframework.core.convert.support.GenericConversionService
      */
 //    @Bean(value = {"formatterRegistrars","conversionService"}) // 此种方式可以统一管理Converter和Formatter
-    @Bean(value = {"formatterRegistrars"})
+//    @Bean(value = {"formatterRegistrars"})
     public FormattingConversionServiceFactoryBean formattingConversionService(@Autowired CustomFormatterRegistrar customFormatterRegistrar) {
 
         FormattingConversionServiceFactoryBean formattingConversionServiceFactoryBean = new FormattingConversionServiceFactoryBean();

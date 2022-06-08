@@ -16,6 +16,8 @@ import ws.spring.convert.vo.CommercialDesc;
 import java.util.Locale;
 
 /**
+ * {@link FormattingConversionService}测试
+ *
  * @author WindShadow
  * @version 2021-11-28.
  */
